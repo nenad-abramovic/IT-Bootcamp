@@ -1,0 +1,7 @@
+/* ЦСС */
+
+.collection {
+  display: block;
+  height: 400px !important;
+  overflow-y: scroll !important;
+}
