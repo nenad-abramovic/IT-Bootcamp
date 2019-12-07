@@ -1,0 +1,81 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-weight: normal;
+  letter-spacing: 0.2px;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+background-image: url('https://ghostsintheuniverse.org/wp-content/uploads/2018/06/cropped-header.png');
+}
+
+.header {
+  background: #ff9803;
+  padding: 20px 25px;
+}
+
+#app {
+  text-align: center;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 6em;
+  letter-spacing: 15px;
+}
+header label {
+  font-size: 2em; 
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+mission label {
+  display: block;
+}
+
+body {
+  width: 800px;
+  margin: auto;
+}
+
+
+
+mission {
+  display: block;
+  float: left;
+  background-color: rgba(0, 70, 128, 0.466);
+  border: 2px solid darkslategray;
+  border-radius: 10px;
+  width: 200px;
+  height: 220px;
+  font-size: 15px;
+  color: white;
+  margin: 20px;
+  padding: 10px;
+}
+missions{
+  overflow: auto;
+}
+missions:after{
+    content: "";
+    clear: both;
+    display: table;
+}
+
+mission:hover {
+  
+  background-color: rgba(36, 152, 247, 0.829);
+}

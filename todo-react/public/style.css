@@ -1,0 +1,31 @@
+#root {
+    text-align: center;
+}
+.true {
+    text-decoration: line-through;
+}
+
+.todo-list {
+    text-align: center;
+}
+
+.todo {
+    width: 300px;
+    height: 23px;
+    margin: 10px auto;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 15px;
+}
+span {
+    float: left;
+}
+
+.todo div {
+    float: right;
+}
+
+.todo div button {
+    width: 30px;
+    border-radius: 50%;
+}
