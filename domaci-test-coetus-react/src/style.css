@@ -1,0 +1,48 @@
+body {
+  text-align: center;
+  color: rgb(43, 42, 42);
+}
+
+input, button {
+  margin: 10px;
+  padding: 10px;
+  box-shadow: 1px 1px 1px lightskyblue;
+}
+
+section {
+  height: 300px;
+  overflow-y: auto;
+}
+
+section, div {
+  border: 1px solid darkgray;
+  border-radius: 10px;
+  margin: 10px;
+}
+section {
+  background-color: wheat;
+}
+
+div{
+  background-color: lightskyblue;
+  padding: 5px;
+}
+#root {
+  background-color: honeydew;
+  width: 800px;
+  margin: auto;
+}
+
+p {
+  text-align: left;
+  margin: 5px 5px;
+}
+
+p:not(:first-child) {
+  display: inline-block;
+  width: calc(50% - 10px);
+}
+
+p:last-child {
+  text-align: right;
+}
