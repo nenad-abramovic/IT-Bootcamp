@@ -65,15 +65,19 @@ export const Content = () => {
       (error) => {
         console.log(`ERROR: ${error}`);
       });
-  }  
+  }
 
-  useEffect(() => {
+  useEffect((r) => {
     getAllMessages();
     let i = setInterval(() => getAllMessages(), 2000);
     return () => clearInterval(i);
   }, []);
 
   return (
+    <>
+    <header>
+      <h1>Coetus Chat</h1>
+    </header>
     <main>
       <InputForm onClick={setUser} placeholder="Enter username..." btnText="Set User"></InputForm>
       <MessageList messages={allMessages} />
@@ -81,5 +85,6 @@ export const Content = () => {
       <button onClick={() => getUserMessages(user)}>Get Messages</button>
       <MessageList messages={userMessages} />
     </main>
+    </>
   );
 }
