@@ -8,12 +8,21 @@ export const Content = () => {
   const [userMessages, setUserMessages] = useState([]);
 
   const getAllMessages = () => {
-    fetch('https://coetus.herokuapp.com/api/message')
+     fetch('https://coetus.herokuapp.com/api/message')
       .then(response => response.json())
-      .then(data => setAllMessages(data.data),
-      () => setAllMessages([]));
+      .then(data => {
+        if(data.success === true){
+        setAllMessages(data.data);
+        } else {
+          console.log('FATAL ERROR!');
+        }
+      },
+      (error) => {
+        console.log(`ERROR: ${error}`);
+        setAllMessages([]);
+      });
   }
-
+  
   const getUserMessages = (username) => {
     return fetch('https://coetus.herokuapp.com/api/message', {
       headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -22,11 +31,20 @@ export const Content = () => {
         username: username
       })
     })
-      .then(response => response.json(),
-      () => setUserMessages([]))
-      .then(data => setUserMessages(data.messages));
+      .then(response => response.json())
+      .then(data => {
+        if(data.success === true){
+          setUserMessages(data.messages);
+        } else {
+          console.log('FATAL ERROR!');
+        }
+      },
+      (error) => {
+        console.log(`ERROR: ${error}`);
+        setUserMessages([]);
+      });
   }
-
+  
   const sendMessage = (message) => {
     return fetch('https://coetus.herokuapp.com/api/message', {
       headers: { "Content-Type": "application/json; charset=utf-8" },
@@ -37,10 +55,23 @@ export const Content = () => {
       })
     })
       .then(response => response.json())
-      .then(() => getAllMessages());
-  }
+      .then((data) => {
+        if(data.success === true){
+          getAllMessages();
+        } else {
+          console.log('FATAL ERROR!');
+        }
+      },
+      (error) => {
+        console.log(`ERROR: ${error}`);
+      });
+  }  
 
-  useEffect(() => getAllMessages(), []);
+  useEffect(() => {
+    getAllMessages();
+    let i = setInterval(() => getAllMessages(), 2000);
+    return () => clearInterval(i);
+  }, []);
 
   return (
     <main>
