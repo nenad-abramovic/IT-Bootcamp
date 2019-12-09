@@ -6,6 +6,7 @@ export const Content = () => {
   const [user, setUser] = useState('');
   const [allMessages, setAllMessages] = useState([]);
   const [userMessages, setUserMessages] = useState([]);
+  const [message, setMessage] = useState('');
 
   const getAllMessages = () => {
      fetch('https://coetus.herokuapp.com/api/message')
@@ -14,11 +15,11 @@ export const Content = () => {
         if(data.success === true){
         setAllMessages(data.data);
         } else {
-          console.log('FATAL ERROR!');
+          setMessage('FATAL ERROR!');
         }
       },
       (error) => {
-        console.log(`ERROR: ${error}`);
+        setMessage(`ERROR: ${error}`);
         setAllMessages([]);
       });
   }
@@ -36,11 +37,11 @@ export const Content = () => {
         if(data.success === true){
           setUserMessages(data.messages);
         } else {
-          console.log('FATAL ERROR!');
+          setMessage('FATAL ERROR!');
         }
       },
       (error) => {
-        console.log(`ERROR: ${error}`);
+        setMessage(`ERROR: ${error}`);
         setUserMessages([]);
       });
   }
@@ -59,15 +60,15 @@ export const Content = () => {
         if(data.success === true){
           getAllMessages();
         } else {
-          console.log('FATAL ERROR!');
+          setMessage('FATAL ERROR!');
         }
       },
       (error) => {
-        console.log(`ERROR: ${error}`);
+        setMessage(`ERROR: ${error}`);
       });
   }
 
-  useEffect((r) => {
+  useEffect(() => {
     getAllMessages();
     let i = setInterval(() => getAllMessages(), 2000);
     return () => clearInterval(i);
@@ -79,11 +80,11 @@ export const Content = () => {
       <h1>Coetus Chat</h1>
     </header>
     <main>
-      <InputForm onClick={setUser} placeholder="Enter username..." btnText="Set User"></InputForm>
+      <InputForm onClick={setUser} placeholder="Enter username..." btnText="Set User" />
       <MessageList messages={allMessages} />
-      <InputForm onClick={sendMessage} placeholder="Enter message..." btnText="Send"></InputForm>
+      <InputForm onClick={sendMessage} placeholder="Enter message..." btnText="Send" message={message} />
       <button onClick={() => getUserMessages(user)}>Get Messages</button>
-      <MessageList messages={userMessages} />
+      <MessageList messages={userMessages} message={message} />
     </main>
     </>
   );
