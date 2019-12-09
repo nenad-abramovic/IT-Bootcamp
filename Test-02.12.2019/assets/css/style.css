@@ -1,0 +1,48 @@
+dashboard {
+    display: block;
+    width: 800px;
+    background-color: greenyellow;
+    margin: 0 auto;
+    height: 150vh;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border: 20px solid chartreuse;
+}
+
+h1 {
+    padding: 10px;
+}
+.my-msg {
+    overflow-y: auto;
+    height: 300px;
+    width: 550px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+messages {
+    display: block;
+    overflow-y: auto;
+    height: 400px;
+    width: 550px;
+    margin: 20px auto;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+.msg-item {
+    border: 1px solid black;
+    margin: 2px auto;
+    width: 500px;
+    text-align: left;
+}
+.txt-author {
+    display: block;
+}
+span {
+    display: inline-block;
+    padding: 10px;
+}
+.txt-date {
+    float: right;
+}

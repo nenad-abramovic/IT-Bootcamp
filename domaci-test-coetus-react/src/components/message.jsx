@@ -10,8 +10,8 @@ export const Message = ({ message }) => {
   return (
     <div>
       <p>Author: {message.username}</p>
-      <p>{message.message}</p>
-      <p>{time}</p>
+      <p>Message: {message.message}</p>
+      <p>Time: {time}</p>
     </div>
   );
 }

@@ -14,7 +14,7 @@ export const InputForm = ({ placeholder, btnText, onClick }) => {
 
   return (
     <form onSubmit={e => e.preventDefault()}>
-      <input type="text" name="input" placeholder={placeholder} onInput={e => setInputValue(e.target.value)} />
+      <input type="text" name="input" placeholder={placeholder} onInput={e => setInputValue(e.target.value.trim())} />
       <input type="submit" value={btnText} onClick={submit} />
     </form>
   );
