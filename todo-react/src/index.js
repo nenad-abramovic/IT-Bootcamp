@@ -31,7 +31,7 @@ const App = () => {
 
     let changeState = (id) => {
         let x = [...tasks];
-        x[x.findIndex(a => a.id === id)].done = !x[x.findIndex(a => a.id === id)].done; 
+        x[x.findIndex(a => a.id === id)].done = !x[x.findIndex(a => a.id === id)].done;
         // x = x.map(y => {
         //     if(y.id === id) {
         //          y.done = !y.done;
@@ -52,7 +52,7 @@ return(
     <>
     <h1>Task List</h1>
     <InputForm click={addTask}></InputForm>
-    <TaskList tasks={tasks} changeState={changeState}  deleteTask={deleteTask}></TaskList>
+    <TaskList tasks={tasks} changeState={changeState}  deleteTask={deleteTask} />
     </>
 )
 }
