@@ -5,6 +5,7 @@ import { Highscore } from './components/highscore';
 import { Register } from './components/register';
 import { Profile } from './components/profile';
 import { Login } from './components/login';
+import { Gameselect } from './components/gameselect';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -40,17 +41,20 @@ function App() {
     },
   ];
 
+
   return (
     <>
     <Header loggedIn={loggedIn} setState={setLoggedIn} />
     <hr />
     <Highscore scores={scores}/>
     <hr />
-    <Login />
-    <hr />
     <Register />
     <hr />
+    <Login />
+    <hr />
     <Profile user={user} />
+    <hr />
+    <Gameselect />
     <hr />
     <Footer />
     </>
