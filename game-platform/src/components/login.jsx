@@ -1,17 +1,31 @@
 import React, { useState } from 'react';
+import { withRouter } from 'react-router-dom';
+import { login } from '../utilities/services';
 
-export const Login = () => {
+ const Login = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const onClick = () => {
+        login(email, password)
+            .then(data => {
+                if(data.success === true) {
+                    props.history.push(`/gameselect/:${data.user.user_id}`);
+                    props.setState(true);
+                }
+            });
+    }
+
     return (
-        <form>
+        <form onSubmit={e => e.preventDefault()}>
             <input type="email" placeholder="Имејл" value={email} onChange={e => setEmail(e.target.value)} required />
-            <input type="passowrd" placeholder="Шифра" value={password} onChange={(e) => { 
+            <input type="password" placeholder="Шифра" value={password} onChange={(e) => {
                 setPassword(e.target.value);
-               }}
+            }}
                 required />
-            <input type="submit" value="Улогуј се" onClick={() => {}} />
+            <input type="submit" value="Улогуј се" onClick={onClick} />
         </form>
     );
 }
+
+export default withRouter(Login);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Logo } from '../components/logo';
 
 export const Header = ({ loggedIn, setState }) => {
@@ -15,9 +16,8 @@ export const Header = ({ loggedIn, setState }) => {
         <header>
             <Logo />
         <h1>Гејмер</h1>
-        <button>Регистрација</button>
-        <button onClick={e => setState(!loggedIn)}>Пријави се</button>
-
+        <Link to="/register">Регистрација</Link>
+        <Link to="/login">Пријави се</Link>
         </header>
     );
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { MemoryGame } from '../games/memorygame';
+import MemoryGame from '../games/memorygame';
 
 export const GameList = ({ games }) => {
     return (
