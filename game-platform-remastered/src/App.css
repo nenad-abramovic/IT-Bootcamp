@@ -31,10 +31,18 @@ header > span {
   margin: 0 20px;
 }
 
-header > img {
+header img {
   height: 80px;
   width: 80px;
   margin: 10px 0 0 10px;
+}
+
+.logo-link {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+  float:left;
 }
 
 header > a {

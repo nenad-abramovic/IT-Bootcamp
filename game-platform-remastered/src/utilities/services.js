@@ -38,3 +38,12 @@ export const getMemoryCards = () => {
   return fetch(`${BASE_URL}${API_URL}${MEMORY_GAME_CARDS}`)
     .then(res => res.json());
 }
+
+export const addScore = (score) => {
+  return fetch(`${BASE_URL}${API_URL}${SCORES}`, {
+    headers: { 'Content-Type': 'application/json; charset=utf-8' },
+    method: 'PUT',
+    body: JSON.stringify(score)
+  })
+    .then(res => res.json());
+}
