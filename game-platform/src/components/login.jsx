@@ -10,7 +10,7 @@ import { login } from '../utilities/services';
         login(email, password)
             .then(data => {
                 if(data.success === true) {
-                    props.history.push(`/gameselect/:${data.user.user_id}`);
+                    props.history.go(-2); //push(`/memorygame/:${data.user.user_id}`);
                     props.setState(true);
                 }
             });

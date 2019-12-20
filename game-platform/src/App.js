@@ -7,46 +7,25 @@ import Register from './components/register';
 import { Profile } from './components/profile';
 import Login from './components/login';
 import { Gameselect } from './components/gameselect';
+import { Content } from './layout/content';
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(false);
-  let routes;
-
-  if (loggedIn) {
-    routes =
-      <>
-        <Route exact path="/" component={Highscore} />
-        <Route exact path="/register">
-          <Register setState={setLoggedIn} />
-        </Route>
-        <Route exact path="/login">
-          <Login setState={setLoggedIn} />
-        </Route>
-        <Route exact path="/profile/:id" component={Profile} />
-        <Route exact path="/gameselect/:id" component={Gameselect} />
-      </>
-  } else {
-    routes = 
-      <>
-        <Route exact path="/" component={Highscore} />
-        <Route exact path="/register">
-          <Register setState={setLoggedIn} />
-        </Route>
-        <Route exact path="/login">
-          <Login setState={setLoggedIn} />
-        </Route>
-        <Route exact path="/profile/:id" component={Profile} />
-      </>
+  
+  const user2 = {
+    name: 'Pera',
+    surname: 'Peric',
+    username: 'Peraperic',
+    email: 'peric@yahoo.com',
+    picture: null
   }
+
+  const [user, setUser] = useState();
 
   return (
     <Router>
-      <Header loggedIn={loggedIn} setState={setLoggedIn} />
-      <Switch>
-        {
-          routes
-        }
-      </Switch>
+      <Header loggedIn={user} setState={setUser} />
+      <Content setUser={setUser} />
       <Footer />
     </Router>
   );

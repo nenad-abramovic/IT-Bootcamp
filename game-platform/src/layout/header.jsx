@@ -8,7 +8,7 @@ export const Header = ({ loggedIn, setState }) => {
         <header>
         <Logo />
         <h1>Гејмер</h1>
-        <button onClick={e => setState(!loggedIn)}>Одјави се</button>
+        <button onClick={e => setState()}>Одјави се</button>
         </header>
         );
     }
