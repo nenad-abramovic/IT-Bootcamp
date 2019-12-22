@@ -13,12 +13,7 @@ function getAllLaunches() {
     error => console.log(error));
 }
 
-function getWiki(post){
-    return fetch(`${post}`)
-    .then(response => response.json());
-}
 export {
-    getWiki,
     getCompanyInfo,
     getAllLaunches
 };

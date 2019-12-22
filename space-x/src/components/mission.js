@@ -1,5 +1,3 @@
-import { getWiki } from "../utilities/space-x-service";
-
 class Mission {
     constructor({ mission_name, launch_year, launch_date_local, rocket, launch_site, links }) {
         this.node = document.createElement('mission');
@@ -36,16 +34,6 @@ class Mission {
         this.node.appendChild(this.txtLaunchDate);
         this.node.appendChild(this.txtRocketName);
         this.node.appendChild(this.txtLaunchSite);
-        this.wiki = links.wikipedia;
-        this.wikiTxt=document.createElement('p');
-        getWiki(this.wiki)
-        .then( data =>
-            this.wikiTxt.textContent = data 
-        )
-        this.node.addEventListener('mouseover', () => {
-            this.node.appendChild(this.wikiTxt);
-           
-        })
     }
     getNode() {
         return this.node;
