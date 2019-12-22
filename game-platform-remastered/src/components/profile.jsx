@@ -3,10 +3,10 @@ import { getUser } from '../utilities/services';
 
 export const Profile = (props) => {
   const userID = props.match.params.id;
-  const userData = window.localStorage.getItem('user') || {user_id: undefined};
+  const [userData, setUserData] = useState({user_id: undefined}); 
   const [user, setUser] = useState({});
   const [isEditable, setIsEditable] = useState(false);
-  const [editedUser, setEditedUser] = useState(user);
+  const [editedUser, setEditedUser] = useState({});
 
   useEffect(() => {
     getUser(userID)
@@ -14,9 +14,11 @@ export const Profile = (props) => {
         if (res.success) {
           setUser(res.user);
           setEditedUser(res.user);
+          console.log(JSON.parse(window.localStorage.getItem('user')));
+          setUserData(JSON.parse(window.localStorage.getItem('user')));
         }
       })
-  }, [userID]);
+  }, []);
 
   const handleClick = (e) => {
     if(!isEditable)
@@ -26,6 +28,7 @@ export const Profile = (props) => {
       if(e.target.parentElement.checkValidity()){
         setUser(editedUser);
         setIsEditable(!isEditable);
+        window.localStorage.setItem('user', JSON.stringify(user));
       }
     }
   }

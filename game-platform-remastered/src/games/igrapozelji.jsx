@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { calculateScore } from '../utilities/utilities';
+import { addScore } from '../utilities/services';
 
 export const IgraPoZelji = props => {
   const [buttons, setButtons] = useState(Array(10));
@@ -60,6 +62,11 @@ export const IgraPoZelji = props => {
     }, t);
   } else {
     console.log('bravoooo');
+    addScore({
+      user_id: JSON.parse(window.localStorage.getItem('user')).user_id,
+      score: calculateScore(time),
+      game_id: 1
+  });
   }
 }, [endTime]);
 
@@ -67,6 +74,7 @@ export const IgraPoZelji = props => {
 
   return (
     <div className="igrapozelji">
+      <p>Време: {time}</p>
       {
         buttons.map(i => i)
       }
